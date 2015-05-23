@@ -4,6 +4,7 @@
  *	Created: 3-5-2015 21:37:15
  *	Author: Arjan Vuik
  *	Description: Handle topics relayed from a MQTT broker, via an ESP8266
+ *	Device:ATTiny2313
  */ 
 
 
@@ -18,8 +19,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-char ReceivedBuffer[100];
-char TransmitBuffer[100];
+char ReceivedBuffer[30];
+char TransmitBuffer[30];
 char Byte;
 char LF = 0x0A;
 uint8_t ByteCount;
@@ -75,7 +76,7 @@ int main(void)
     }
 }
 
-ISR(USART_RXC_vect)
+ISR(USART_RX_vect)
 {
 	ReceivedByte = UDR;             //read UART register into value
 	Recv = true;
