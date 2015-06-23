@@ -51,9 +51,9 @@ int main(void)
 			ReceivedBuffer[ByteCount]=ReceivedByte;
 			Recv=0;
 			ByteCount++;
-			if(ByteCount > 100){
+			if(ByteCount > 29){
 				memmove(&ReceivedBuffer[1], &ReceivedBuffer[0],sizeof(ReceivedBuffer)-1);
-				ByteCount = 100;
+				ByteCount = 29;
 			}
 		}
 		
